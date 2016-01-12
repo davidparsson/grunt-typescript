@@ -202,12 +202,14 @@ export function createGruntOption(source: any, grunt: IGrunt, gruntFile: grunt.f
         targetVersion = prepareTarget(source),
         basePath = checkBasePath(source),
         rootDir = util.isStr(source.rootDir) ? source.rootDir : undefined,
-        keepDirectoryHierarchy = boolOrUndef(source, "keepDirectoryHierarchy");
+        keepDirectoryHierarchy = boolOrUndef(source, "keepDirectoryHierarchy"),
+        sourceRoot = util.isStr(source.sourceRoot) ? source.sourceRoot : undefined,
+        mapRoot = util.isStr(source.mapRoot) ? source.mapRoot : undefined;
 
     function getTargetFiles(): string[]{
         return <string[]>grunt.file.expand(<string[]>gruntFile.orig.src);
     }
-        
+
 
     function getReferences(): string[]{
         let target: string[],
@@ -282,7 +284,9 @@ export function createGruntOption(source: any, grunt: IGrunt, gruntFile: grunt.f
             inlineSources: boolOrUndef(source, "inlineSources"),
             noEmitHelpers: boolOrUndef(source, "noEmitHelpers"),
             jsx: prepareJsx(source),
-            experimentalAsyncFunctions: boolOrUndef(source, "experimentalAsyncFunctions")
+            experimentalAsyncFunctions: boolOrUndef(source, "experimentalAsyncFunctions"),
+            sourceRoot: sourceRoot,
+            mapRoot: mapRoot
         }
     };
 
