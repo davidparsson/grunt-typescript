@@ -100,6 +100,8 @@ grunt.initConfig({
 | jsx                            | string  | Support JSX in '.tsx' files: 'React' or 'Preserve'.                                                                                   |
 | experimentalAsyncFunctions     | boolean | Support ES7-proposed asynchronous functions using the async/await keywords.                                                           |
 | rootDir                        | string  | Specifies the root directory of input files. Only use to control the output directory structure with outDir option.                   |
+| mapRoot                        | string  | Specifies the location where debugger should locate map files instead of generated locations.                                         |
+| sourceRoot                     | string  | Specifies the location where debugger should locate TypeScript files instead of source locations.                                     |
 
 ### original options
 
